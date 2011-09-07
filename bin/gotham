@@ -1,3 +1,10 @@
 #!/usr/bin/env ruby
 
+require 'rubygems'
+require 'highline/import' #cargo examples/basic_usage.rb
+require_relative '../lib/gotham/player.rb'
+
 puts "Welcome to Gotham"
+my_player = ask("Which Hero do you want to play?[#{Gotham::Player.available_heroes}]") 
+
+puts my_player.inspect
