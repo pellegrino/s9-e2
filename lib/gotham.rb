@@ -1,6 +1,10 @@
 require 'colorize'
-require 'lib/block'
-require 'lib/region'
-require 'lib/player'
+require 'gotham/version'
+require 'gotham/block'
+require 'gotham/region'
+require 'gotham/player'
 module Gotham
+  def self.version
+    Gotham::VERSION
+  end
 end

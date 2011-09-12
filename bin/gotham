@@ -6,5 +6,5 @@ require_relative '../lib/gotham/player.rb'
 
 puts "Welcome to Gotham"
 my_player = ask("Which Hero do you want to play?[#{Gotham::Player.available_heroes}]") 
+regions = ["Financial","Downtown","Heights","Docks"].each {|r| Gotham::Region.new(r)}
 
-puts my_player.inspect
