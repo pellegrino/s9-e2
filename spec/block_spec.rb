@@ -232,6 +232,9 @@ describe Gotham::Block, "#decrease_disaster" do
 
 end
 
+describe Gotham::Block, "#add_path" do
+
+end
 private
 
 def sample_block
