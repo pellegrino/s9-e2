@@ -2,9 +2,21 @@
 
 require 'rubygems'
 require 'highline/import' #cargo examples/basic_usage.rb
-require_relative '../lib/gotham/player.rb'
+require_relative '../lib/gotham.rb'
 
 puts "Welcome to Gotham"
-my_player = ask("Which Hero do you want to play?[#{Gotham::Player.available_heroes}]") 
-regions = ["Financial","Downtown","Heights","Docks"].each {|r| Gotham::Region.new(r)}
+num_players = ask("How many players? [1-6]", Integer) do |q|
+  q.in = 1..6
+end
+
+players = Gotham::AllPlayers.new
+
+num_players.times do |num|
+  players.add_player(choose *players.available_heroes.keys)
+end
+
+all_regions = Gotham.base_regions + players.player_regions
+map = Gotham::Map.new(*all_regions)
+
+puts map.to_s
 
