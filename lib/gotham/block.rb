@@ -2,15 +2,18 @@ module Gotham
   class Block
     attr_accessor :paths, :crime, :streets, :disaster, :hideout
 
-    attr_reader :number
+    attr_reader :number, :region, :connector
     
     COLORS = [:white, :blue, :green, :yellow, :red]
 
     #Don't allow for more levels than there are color levels.'
     MAX_LEVEL = COLORS.length - 1
-    def initialize(number,paths = [],crime = 0, streets = 0, disaster = 0, hideout = false)
+    def initialize(number, region, paths = [],
+                   crime = 0, streets = 0, disaster = 0,
+                   hideout = false)
       @number = number
       @paths = paths
+      @region = region
       raise ::ArgumentError, "paths must be an array" unless @paths.is_a? Array
       @crime = crime
       @streets = streets
@@ -21,7 +24,10 @@ module Gotham
     def to_s
       "#{number}.#{color(@streets)}.#{color(@disaster)}"
     end
-     
+
+    def add_connection(to)
+      @connector = to
+    end
 
     def add_path(to)
       @paths.push(to).uniq!
