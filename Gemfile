@@ -9,7 +9,9 @@ group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-bundler'
+  gem "guard-spork"
   gem 'rb-inotify' #For linux
   gem 'libnotify' #for linux
+  gem 'spork'
 end
 
