@@ -21,7 +21,7 @@ GEM
     fancy_irb (0.7.0)
       paint (>= 0.8.1)
       unicode-display_width (>= 0.1.1)
-    ffi (1.0.9)
+    ffi (1.15.0)
     g (1.4.0)
       ruby-growl (>= 1.0.1)
     guard (0.6.3)
